@@ -1,0 +1,77 @@
+{
+  "total_rows_evaluated": 500,
+  "per_entity": {
+    "AADHAAR_NUMBER": {
+      "presidio": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 94
+      },
+      "sentinel": {
+        "precision": 0.752,
+        "recall": 1.0,
+        "f1": 0.8584474885844748,
+        "tp": 94,
+        "fp": 31,
+        "fn": 0
+      }
+    },
+    "INDIAPAN": {
+      "presidio": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 62
+      },
+      "sentinel": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 62,
+        "fp": 0,
+        "fn": 0
+      }
+    },
+    "INDIANPHONENO": {
+      "presidio": {
+        "precision": 0.9746376811594203,
+        "recall": 0.992619926199262,
+        "f1": 0.9835466179159049,
+        "tp": 269,
+        "fp": 7,
+        "fn": 2
+      },
+      "sentinel": {
+        "precision": 0.9063545150501672,
+        "recall": 1.0,
+        "f1": 0.9508771929824561,
+        "tp": 271,
+        "fp": 28,
+        "fn": 0
+      }
+    },
+    "INDIAPASSPORT": {
+      "presidio": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 86
+      },
+      "sentinel": {
+        "precision": 0.9052631578947369,
+        "recall": 1.0,
+        "f1": 0.9502762430939227,
+        "tp": 86,
+        "fp": 9,
+        "fn": 0
+      }
+    }
+  }
+}
