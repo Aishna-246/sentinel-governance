@@ -1,0 +1,33 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Environment
+.env
+
+# Project outputs
+output/
+mlflow_data/
+sentinel.db
+ledger.db
+
+# Node
+node_modules/
+frontend/dist/
+frontend/.env.local
+
+# IDE
+.cursor/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
