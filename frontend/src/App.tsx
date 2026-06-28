@@ -1,5 +1,7 @@
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
+import Models from './pages/Models'
+import Lineage from './pages/Lineage'
 
 type NavItem = {
   to: string
@@ -102,8 +104,8 @@ function App() {
         <div style={{ flex: 1, overflowY: 'auto', backgroundColor: 'white', padding: '32px' }}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/models" element={<PlaceholderPage title="Models" />} />
-            <Route path="/lineage" element={<PlaceholderPage title="Lineage" />} />
+            <Route path="/models" element={<Models />} />
+            <Route path="/lineage" element={<Lineage />} />
             <Route path="/scanner" element={<PlaceholderPage title="PII Scanner" />} />
             <Route path="/egress" element={<PlaceholderPage title="Vendor Flows" />} />
             <Route path="/decisions" element={<PlaceholderPage title="Decisions" />} />
