@@ -1,0 +1,68 @@
+[
+  {
+    "model_name": "fraud_flag_classifier",
+    "version": "3",
+    "stage": "Staging",
+    "creation_timestamp": 1782594039968,
+    "description": "",
+    "tags": {
+      "pii_columns": "device_id,ip_address,pan_number,email",
+      "training_dataset": "demo/fraud_training_data.csv",
+      "dpdp_risk": "medium",
+      "model_type": "classification"
+    },
+    "training_dataset": "demo/fraud_training_data.csv",
+    "pii_columns": [
+      "device_id",
+      "ip_address",
+      "pan_number",
+      "email"
+    ],
+    "dpdp_risk": "medium",
+    "external_api": "",
+    "model_type": "classification"
+  },
+  {
+    "model_name": "rupee_credit_scorer",
+    "version": "3",
+    "stage": "Production",
+    "creation_timestamp": 1782594024902,
+    "description": "",
+    "tags": {
+      "pii_columns": "aadhaar_hash,pan_number,mobile,full_name",
+      "training_dataset": "demo/rupee_credit_data.csv",
+      "dpdp_risk": "high",
+      "model_type": "classification"
+    },
+    "training_dataset": "demo/rupee_credit_data.csv",
+    "pii_columns": [
+      "aadhaar_hash",
+      "pan_number",
+      "mobile",
+      "full_name"
+    ],
+    "dpdp_risk": "high",
+    "external_api": "",
+    "model_type": "classification"
+  },
+  {
+    "model_name": "support_chatbot_groq",
+    "version": "3",
+    "stage": "Production",
+    "creation_timestamp": 1782594052651,
+    "description": "",
+    "tags": {
+      "model_type": "llm_proxy",
+      "external_api": "groq",
+      "sends_pii_risk": "true",
+      "dpdp_risk": "high",
+      "training_dataset": "",
+      "pii_columns": ""
+    },
+    "training_dataset": "",
+    "pii_columns": [],
+    "dpdp_risk": "high",
+    "external_api": "groq",
+    "model_type": "llm_proxy"
+  }
+]

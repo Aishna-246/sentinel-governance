@@ -1,0 +1,360 @@
+{
+  "nodes": [
+    {
+      "id": "ds_fraud_flag_classifier",
+      "type": "dataset",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "data": {
+        "label": "fraud_training_data.csv",
+        "pii_columns": [
+          "device_id",
+          "ip_address",
+          "pan_number",
+          "email"
+        ],
+        "dpdp_risk": "medium",
+        "full_path": "demo/fraud_training_data.csv"
+      }
+    },
+    {
+      "id": "model_fraud_flag_classifier",
+      "type": "model",
+      "position": {
+        "x": 300,
+        "y": 0
+      },
+      "data": {
+        "label": "fraud_flag_classifier",
+        "version": "3",
+        "stage": "Staging",
+        "dpdp_risk": "medium",
+        "pii_columns": [
+          "device_id",
+          "ip_address",
+          "pan_number",
+          "email"
+        ]
+      }
+    },
+    {
+      "id": "api_fraud_flag_classifier",
+      "type": "api",
+      "position": {
+        "x": 600,
+        "y": 0
+      },
+      "data": {
+        "label": "FastAPI Endpoint",
+        "endpoint": "/predict/fraud_flag_classifier"
+      }
+    },
+    {
+      "id": "decision_fraud_flag_classifier",
+      "type": "decision",
+      "position": {
+        "x": 900,
+        "y": 0
+      },
+      "data": {
+        "label": "Automated Decision",
+        "model": "fraud_flag_classifier"
+      }
+    },
+    {
+      "id": "audit_fraud_flag_classifier",
+      "type": "audit",
+      "position": {
+        "x": 1200,
+        "y": 0
+      },
+      "data": {
+        "label": "Audit Log",
+        "retention_days": 365
+      }
+    },
+    {
+      "id": "ds_rupee_credit_scorer",
+      "type": "dataset",
+      "position": {
+        "x": 0,
+        "y": 200
+      },
+      "data": {
+        "label": "rupee_credit_data.csv",
+        "pii_columns": [
+          "aadhaar_hash",
+          "pan_number",
+          "mobile",
+          "full_name"
+        ],
+        "dpdp_risk": "high",
+        "full_path": "demo/rupee_credit_data.csv"
+      }
+    },
+    {
+      "id": "model_rupee_credit_scorer",
+      "type": "model",
+      "position": {
+        "x": 300,
+        "y": 200
+      },
+      "data": {
+        "label": "rupee_credit_scorer",
+        "version": "3",
+        "stage": "Production",
+        "dpdp_risk": "high",
+        "pii_columns": [
+          "aadhaar_hash",
+          "pan_number",
+          "mobile",
+          "full_name"
+        ]
+      }
+    },
+    {
+      "id": "api_rupee_credit_scorer",
+      "type": "api",
+      "position": {
+        "x": 600,
+        "y": 200
+      },
+      "data": {
+        "label": "FastAPI Endpoint",
+        "endpoint": "/predict/rupee_credit_scorer"
+      }
+    },
+    {
+      "id": "decision_rupee_credit_scorer",
+      "type": "decision",
+      "position": {
+        "x": 900,
+        "y": 200
+      },
+      "data": {
+        "label": "Automated Decision",
+        "model": "rupee_credit_scorer"
+      }
+    },
+    {
+      "id": "audit_rupee_credit_scorer",
+      "type": "audit",
+      "position": {
+        "x": 1200,
+        "y": 200
+      },
+      "data": {
+        "label": "Audit Log",
+        "retention_days": 365
+      }
+    },
+    {
+      "id": "model_support_chatbot_groq",
+      "type": "model",
+      "position": {
+        "x": 300,
+        "y": 400
+      },
+      "data": {
+        "label": "support_chatbot_groq",
+        "version": "3",
+        "stage": "Production",
+        "dpdp_risk": "high",
+        "pii_columns": []
+      }
+    },
+    {
+      "id": "api_support_chatbot_groq",
+      "type": "api",
+      "position": {
+        "x": 600,
+        "y": 400
+      },
+      "data": {
+        "label": "FastAPI Endpoint",
+        "endpoint": "/predict/support_chatbot_groq"
+      }
+    },
+    {
+      "id": "vendor_groq_support_chatbot_groq",
+      "type": "llm_vendor",
+      "position": {
+        "x": 900,
+        "y": 320
+      },
+      "data": {
+        "label": "GROQ",
+        "provider": "groq",
+        "pii_risk": "false"
+      }
+    },
+    {
+      "id": "decision_support_chatbot_groq",
+      "type": "decision",
+      "position": {
+        "x": 900,
+        "y": 480
+      },
+      "data": {
+        "label": "Automated Decision",
+        "model": "support_chatbot_groq"
+      }
+    },
+    {
+      "id": "audit_support_chatbot_groq",
+      "type": "audit",
+      "position": {
+        "x": 1200,
+        "y": 400
+      },
+      "data": {
+        "label": "Audit Log",
+        "retention_days": 365
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge_ds_fraud_flag_classifier_model_fraud_flag_classifier",
+      "source": "ds_fraud_flag_classifier",
+      "target": "model_fraud_flag_classifier",
+      "type": "smoothstep",
+      "animated": false,
+      "data": {
+        "pii_flow": true,
+        "style": {
+          "stroke": "#C0392B",
+          "strokeDasharray": "5,5"
+        }
+      }
+    },
+    {
+      "id": "edge_model_fraud_flag_classifier_api_fraud_flag_classifier",
+      "source": "model_fraud_flag_classifier",
+      "target": "api_fraud_flag_classifier",
+      "type": "smoothstep",
+      "animated": false,
+      "data": {
+        "pii_flow": true,
+        "style": {
+          "stroke": "#C0392B",
+          "strokeDasharray": "5,5"
+        }
+      }
+    },
+    {
+      "id": "edge_api_fraud_flag_classifier_decision_fraud_flag_classifier",
+      "source": "api_fraud_flag_classifier",
+      "target": "decision_fraud_flag_classifier",
+      "type": "smoothstep",
+      "animated": false,
+      "data": {
+        "pii_flow": false
+      }
+    },
+    {
+      "id": "edge_decision_fraud_flag_classifier_audit_fraud_flag_classifier",
+      "source": "decision_fraud_flag_classifier",
+      "target": "audit_fraud_flag_classifier",
+      "type": "smoothstep",
+      "animated": false,
+      "data": {
+        "pii_flow": false
+      }
+    },
+    {
+      "id": "edge_ds_rupee_credit_scorer_model_rupee_credit_scorer",
+      "source": "ds_rupee_credit_scorer",
+      "target": "model_rupee_credit_scorer",
+      "type": "smoothstep",
+      "animated": false,
+      "data": {
+        "pii_flow": true,
+        "style": {
+          "stroke": "#C0392B",
+          "strokeDasharray": "5,5"
+        }
+      }
+    },
+    {
+      "id": "edge_model_rupee_credit_scorer_api_rupee_credit_scorer",
+      "source": "model_rupee_credit_scorer",
+      "target": "api_rupee_credit_scorer",
+      "type": "smoothstep",
+      "animated": false,
+      "data": {
+        "pii_flow": true,
+        "style": {
+          "stroke": "#C0392B",
+          "strokeDasharray": "5,5"
+        }
+      }
+    },
+    {
+      "id": "edge_api_rupee_credit_scorer_decision_rupee_credit_scorer",
+      "source": "api_rupee_credit_scorer",
+      "target": "decision_rupee_credit_scorer",
+      "type": "smoothstep",
+      "animated": false,
+      "data": {
+        "pii_flow": false
+      }
+    },
+    {
+      "id": "edge_decision_rupee_credit_scorer_audit_rupee_credit_scorer",
+      "source": "decision_rupee_credit_scorer",
+      "target": "audit_rupee_credit_scorer",
+      "type": "smoothstep",
+      "animated": false,
+      "data": {
+        "pii_flow": false
+      }
+    },
+    {
+      "id": "edge_model_support_chatbot_groq_api_support_chatbot_groq",
+      "source": "model_support_chatbot_groq",
+      "target": "api_support_chatbot_groq",
+      "type": "smoothstep",
+      "animated": false,
+      "data": {
+        "pii_flow": false
+      }
+    },
+    {
+      "id": "edge_api_support_chatbot_groq_vendor_groq_support_chatbot_groq",
+      "source": "api_support_chatbot_groq",
+      "target": "vendor_groq_support_chatbot_groq",
+      "type": "smoothstep",
+      "animated": false,
+      "data": {
+        "pii_flow": true,
+        "style": {
+          "stroke": "#C0392B",
+          "strokeDasharray": "5,5"
+        }
+      }
+    },
+    {
+      "id": "edge_api_support_chatbot_groq_decision_support_chatbot_groq",
+      "source": "api_support_chatbot_groq",
+      "target": "decision_support_chatbot_groq",
+      "type": "smoothstep",
+      "animated": false,
+      "data": {
+        "pii_flow": false
+      }
+    },
+    {
+      "id": "edge_decision_support_chatbot_groq_audit_support_chatbot_groq",
+      "source": "decision_support_chatbot_groq",
+      "target": "audit_support_chatbot_groq",
+      "type": "smoothstep",
+      "animated": false,
+      "data": {
+        "pii_flow": false
+      }
+    }
+  ]
+}
